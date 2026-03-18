@@ -18,7 +18,10 @@ An AI agent, according to the internet, is:
 > and takes actions to achieve goals."*
 
 This definition is accurate in the same way that "a car is a metal box that moves"
-is accurate. Technically correct. Utterly useless for actually building one.
+is accurate. Technically correct. Utterly useless for actually building one. Probably 
+fine for a Wikipedia lead paragraph. Not useful for understanding why your agent just
+ sent 47 emails when you asked it to "follow up with leads."
+
 
 Let's try again.
 
@@ -36,24 +39,27 @@ You leave them a note:
 
 And you walk away.
 
-**A chatbot** 🤖 would say: *"Here are some tips on how to search for flights!"*
+**A chatbot** 🤖 - your old assistant - would say: *"Here are some tips on how to search for flights!"* or, 
+if it was having a good day, "I found this URL for you." Then it would have sat there, blinking, waiting for you to do the rest.
 
 **An agent** ✈️ **books the flight.**
 
 It searches the web. It compares prices. It checks your calendar. It reads the airline's
-terms and conditions (all of them, without complaining). It fills in the form. It pauses
-and asks you to confirm before paying — because it has been trained to know that spending
-your money without permission is A Thing.
+terms and conditions (all of them, without complaining, which is frankly suspicious). 
+It fills in the form. It pauses and asks you to confirm before paying — because it 
+has been trained to know that spending your money without permission is, legally and socially, A Thing.
 
 Then it books the flight.
 
 *That* is an AI agent.
 
+> *FIELD GUIDE ENTRY - AI Agent: A system that takes a goal, breaks it into steps, uses tools to execute those steps, observes what happened, and keeps going until it's done or something explodes. Metaphorically. Usually.*
+
 ---
 
 ## 🏗️ The Three Things That Make an Agent an Agent
 
-Strip away the jargon and you'll find that every AI agent is built around three ideas.
+Strip away the jargon, the whitepapers, the conference talks, and the LinkedIn posts, and you'll find that every AI agent is built around three ideas.
 
 ```mermaid
 flowchart LR

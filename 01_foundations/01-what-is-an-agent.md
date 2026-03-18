@@ -29,8 +29,8 @@ Let's try again.
 
 ## 💡 The Actually Useful Answer
 
-Imagine you hire an assistant. Not a clever assistant — one who can only follow written
-instructions — but one who reads very fast, never gets tired, and has somehow memorised
+Imagine you hire an assistant. Not a clever assistant - one who can only follow written
+instructions - but one who reads very fast, never gets tired, and has somehow memorised
 most of the internet.
 
 You leave them a note:
@@ -46,7 +46,7 @@ if it was having a good day, "I found this URL for you." Then it would have sat 
 
 It searches the web. It compares prices. It checks your calendar. It reads the airline's
 terms and conditions (all of them, without complaining, which is frankly suspicious). 
-It fills in the form. It pauses and asks you to confirm before paying — because it 
+It fills in the form. It pauses and asks you to confirm before paying - because it 
 has been trained to know that spending your money without permission is, legally and socially, A Thing.
 
 Then it books the flight.
@@ -78,8 +78,8 @@ flowchart LR
 
 A chatbot responds. An agent *pursues*.
 
-You give an agent an objective — *"find me three competitors to this product"* or
-*"monitor this website and alert me when the price drops"* — and the agent figures
+You give an agent an objective - *"find me three competitors to this product"* or
+*"monitor this website and alert me when the price drops"* - and the agent figures
 out how to get there. The goal persists across multiple steps. The agent doesn't
 forget what it was doing just because it had to search the web in the middle.
 
@@ -90,22 +90,24 @@ text boxes.
 
 Tools are the agent's hands. Without tools, an agent is just a language model: brilliant
 at reasoning, completely incapable of affecting the world. With tools, it can search the
-web, run code, read files, send emails, query databases, call APIs — and, if given a
+web, run code, read files, send emails, query databases, call APIs - and, if given a
 particularly unfortunate set of permissions, accidentally restructure your company's
-entire folder system.
+entire folder system or maybe delete your production database ;) you can never know.
 
 The tools are just functions. The agent decides when to call them.
 
 ### 👁️ 3. It Can Observe and Adapt
 
+This is the part that feels like magic until you understand it, and then feels like clever engineering.
+
 An agent doesn't fire off a predetermined sequence of actions. It looks at what
-happened — the tool output, the error message, the unexpected result — and *adjusts*.
+happened - the tool output, the error message, the unexpected result - and *adjusts*.
 
 The flight search returned no results? The agent tries different dates. The API call
 failed? The agent reads the error and tries a different endpoint. The code has a bug?
 The agent reads the traceback and fixes it.
 
-This loop — **act → observe → think → act again** — is what separates an agent from
+This loop - **act → observe → think → act again** - is what separates an agent from
 a very sophisticated script.
 
 Scripts fail silently or loudly. Agents *try* to recover.
@@ -118,7 +120,7 @@ Scripts fail silently or loudly. Agents *try* to recover.
 |---|---|---|
 | **Input** | A message | A goal |
 | **Output** | A reply | A result |
-| **Tools** | Usually none | Yes — this is the point |
+| **Tools** | Usually none | Yes - this is the point |
 | **Memory** | Single conversation | Can persist across sessions |
 | **Loop** | One turn | Multiple steps until done |
 | **Fails by** | Saying something wrong | Doing something wrong |
@@ -147,7 +149,7 @@ sequenceDiagram
 ```
 
 That last row in the table is important. The failure modes are different in kind, not
-just degree. An agent that hallucinates doesn't just give you a wrong answer — it can
+just degree. An agent that hallucinates doesn't just give you a wrong answer - it can
 **act** on that wrong answer. This is why agent safety and guardrails matter in a way
 that chatbot safety doesn't quite capture.
 
@@ -186,7 +188,7 @@ These are not gotcha questions. They are engineering questions.
 - An agent pursues a 🎯 **goal** across multiple steps
 - It uses 🛠️ **tools** to interact with the world
 - It 👁️ **observes results** and adapts its approach
-- The failure modes are different from chatbots — and matter more
+- The failure modes are different from chatbots - and matter more
 
 **Next:** [The Anatomy of an Agent →](02-anatomy-of-an-agent.md)
 

@@ -1,6 +1,6 @@
 # 🤖 What Is an AI Agent?
 
-*Chapter 01 of [Foundations](README.md)*
+*Chapter 01 of [Foundations](readme.md)*
 
 ---
 
@@ -194,4 +194,4 @@ These are not gotcha questions. They are engineering questions.
 
 ---
 
-*← [Back to Foundations](README.md) · [Back to main guide](../README.md)*
+*← [Back to Foundations](readme.md) · [Back to main guide](../README.md)*

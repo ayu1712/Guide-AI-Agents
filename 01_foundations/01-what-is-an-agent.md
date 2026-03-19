@@ -193,5 +193,8 @@ These are not gotcha questions. They are engineering questions.
 **Next:** [The Anatomy of an Agent →](02-anatomy-of-an-agent.md)
 
 ---
+<div align="center">
 
 *← [Back to Foundations](readme.md) · [Back to main guide](../README.md)*
+
+</div>

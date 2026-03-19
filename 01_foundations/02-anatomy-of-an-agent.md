@@ -351,8 +351,6 @@ That someone was Anthropic. The thing they did was **MCP** — the **Model Conte
   [1 integration. Works everywhere. The engineers rest.]
 ```
 
-MCP is covered in full in Section 03. For now: it exists, it matters, it works, and it is the reason you can build a tool once and use it with any agent that supports the protocol.
-
 ---
 
 ## 💾 Part Four: Memory
@@ -647,6 +645,8 @@ You now understand what an agent is made of. You've seen the brain, the hands, t
 
 ---
 
+<div align="center">
+
 *← [Back to Foundations](readme.md) · [Back to main guide](../README.md)*
 
-
+</div>

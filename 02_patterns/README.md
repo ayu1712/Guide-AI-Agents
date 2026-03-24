@@ -33,13 +33,13 @@
 
 | # | Pattern | Difficulty | The Vibe |
 |:---:|:--------|:----------:|:---------|
-| [01](#01-the-react-loop) | 🔄 The ReAct Loop | 🟢 Beginner | *Think. Act. Observe. Repeat until done or defeated.* |
-| [02](#02-chain-of-thought) | 🔗 Chain-of-Thought | 🟢 Beginner | *Talk to yourself. It helps. Seriously.* |
-| [03](#-pattern-03-tool-use) | 🛠️ Tool Use | 🟡 Intermediate | *Give it hands. Then hide the delete button.* |
-| [04](#04-reflection--self-critique) | 🪞 Reflection & Self-Critique | 🟡 Intermediate | *The agent argues with itself and somehow wins.* |
-| [05](#05-plan-and-execute) | 📋 Plan-and-Execute | 🟡 Intermediate | *Ready. Aim. Discover the plan was wrong. Adapt.* |
-| [06](#06-multi-agent-systems) | 🤝 Multi-Agent Systems | 🔴 Advanced | *It takes a village. The village has a bug tracker.* |
-| [07](#07-memory-patterns) | 🧠 Memory Patterns | 🔴 Advanced | *Remembering is engineering. Forgetting is an architectural choice.* |
+| [01](01-the-react-loop.md) | 🔄 The ReAct Loop | 🟢 Beginner | *Think. Act. Observe. Repeat until done or defeated.* |
+| [02](02-chain-of-thought.md) | 🔗 Chain-of-Thought | 🟢 Beginner | *Talk to yourself. It helps. Seriously.* |
+| [03](03-tool-use.md) | 🛠️ Tool Use | 🟡 Intermediate | *Give it hands. Then hide the delete button.* |
+| [04](04-reflection-and-self-critique.md) | 🪞 Reflection & Self-Critique | 🟡 Intermediate | *The agent argues with itself and somehow wins.* |
+| [05](05-plan-and-execute.md) | 📋 Plan-and-Execute | 🟡 Intermediate | *Ready. Aim. Discover the plan was wrong. Adapt.* |
+| [06](06-multi-agent-systems.md) | 🤝 Multi-Agent Systems | 🔴 Advanced | *It takes a village. The village has a bug tracker.* |
+| [07](07-memory-patterns.md) | 🧠 Memory Patterns | 🔴 Advanced | *Remembering is engineering. Forgetting is an architectural choice.* |
 
 ---
 

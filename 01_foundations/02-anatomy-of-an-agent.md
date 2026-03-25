@@ -1,16 +1,16 @@
 # 🧬 Chapter 2: The Anatomy of an Agent
 
 > *"The ships hung in the sky in much the same way that bricks don't."*
-> — Douglas Adams, The Hitchhiker's Guide to the Galaxy
+> - Douglas Adams, The Hitchhiker's Guide to the Galaxy
 
 > *"The agent hung in the loop in much the same way that your sanity doesn't."*
-> — This Guide, Chapter 2
+> - This Guide, Chapter 2
 
 ---
 
 ## 🔪 A Cross-Section (With Labels, and a Warning)
 
-If you were to crack open an AI agent — which is **not recommended**, as they are mostly software and the results would be disappointing and also illegal depending on your jurisdiction — you would find roughly the following components, stacked inside each other like a particularly nerdy set of Russian dolls.
+If you were to crack open an AI agent - which is **not recommended**, as they are mostly software and the results would be disappointing and also illegal depending on your jurisdiction - you would find roughly the following components, stacked inside each other like a particularly nerdy set of Russian dolls.
 
 This chapter is that crack-open. A full dissection. Gloves optional.
 
@@ -71,7 +71,7 @@ Beautiful, isn't it? No? That's fine. By the end of this chapter it will make co
 
 ### *Also Known As: The Language Model, The Reasoner, The Thing Everyone Means When They Say "AI"*
 
-At the centre of every AI agent — beating like a heart, if hearts could hallucinate citations — is a **language model**.
+At the centre of every AI agent - beating like a heart, if hearts could hallucinate citations - is a **language model**.
 
 The language model is responsible for:
 
@@ -93,7 +93,7 @@ Here is the uncomfortable truth about the brain of your agent, delivered without
 
 **It is predicting the next token.**
 
-That's it. The whole thing. The "reasoning," the "planning," the "tool calls" — all of it is, at a mechanical level, the model predicting what text ought to come next given all the text that came before.
+That's it. The whole thing. The "reasoning," the "planning," the "tool calls" - all of it is, at a mechanical level, the model predicting what text ought to come next given all the text that came before.
 
 The remarkable thing is not that this works. The remarkable thing is *how well it works*. Predicting "what should come next" turns out to include, with sufficient training data:
 
@@ -193,7 +193,7 @@ Context windows are measured in **tokens**. A token is roughly three-quarters of
 
 ### What Happens When the Context Fills Up
 
-When the context window fills, the model must make a choice. Or rather, *you* must make a choice about what the model does, because the model cannot make architectural decisions about itself — that would be recursive in an interesting but unhelpful way.
+When the context window fills, the model must make a choice. Or rather, *you* must make a choice about what the model does, because the model cannot make architectural decisions about itself - that would be recursive in an interesting but unhelpful way.
 
 The options are:
 
@@ -246,7 +246,7 @@ Here is the critical distinction that separates a language model from an agent:
 
 **With tools:** An agent can actually do them.
 
-This distinction is enormous. It's the difference between an advisor who writes excellent memos about strategy and an advisor who can also pick up the phone, call the client, read the contract, update the spreadsheet, and send the summary — while you watch.
+This distinction is enormous. It's the difference between an advisor who writes excellent memos about strategy and an advisor who can also pick up the phone, call the client, read the contract, update the spreadsheet, and send the summary - while you watch.
 
 ### How Tool Calling Actually Works
 
@@ -254,7 +254,7 @@ This is the part that surprises most people when they first encounter it:
 
 **The model does not run the tool.**
 
-Let that sink in. The model — the brain, the LLM — cannot execute code. It cannot call an API. It cannot search the web. It generates *text that says it wants to do these things*, and then your code does them.
+Let that sink in. The model - the brain, the LLM - cannot execute code. It cannot call an API. It cannot search the web. It generates *text that says it wants to do these things*, and then your code does them.
 
 ```
   THE TRUTH ABOUT TOOL CALLING
@@ -293,7 +293,7 @@ Let that sink in. The model — the brain, the LLM — cannot execute code. It c
 
 Tools come in two flavours: **read tools** (the agent looks at things) and **write tools** (the agent changes things). This is an important distinction, roughly equivalent to the difference between "looking at a fragile vase" and "picking up the fragile vase."
 
-**📖 Read Tools** — Safe(ish)
+**📖 Read Tools** - Safe(ish)
 
 | Tool | What It Does | Risk Level |
 |------|-------------|------------|
@@ -303,7 +303,7 @@ Tools come in two flavours: **read tools** (the agent looks at things) and **wri
 | `query_database(sql)` | Reads from a DB | 🟡 Medium (watch your SQL) |
 | `browse_page(url)` | Fetches a webpage | 🟡 Medium (prompt injection lurks) |
 
-**✏️ Write Tools** — Here Be Dragons
+**✏️ Write Tools** - Here Be Dragons
 
 | Tool | What It Does | Risk Level |
 |------|-------------|------------|
@@ -323,9 +323,9 @@ Tools come in two flavours: **read tools** (the agent looks at things) and **wri
 
 ### MCP: The USB Standard for Agent Tools
 
-Historically, every AI framework invented its own tool format. LangChain tools looked like one thing. OpenAI function calling looked like another. Connecting a tool to five different agents meant five different integrations — a situation so tedious that someone eventually did something about it.
+Historically, every AI framework invented its own tool format. LangChain tools looked like one thing. OpenAI function calling looked like another. Connecting a tool to five different agents meant five different integrations - a situation so tedious that someone eventually did something about it.
 
-That someone was Anthropic. The thing they did was **MCP** — the **Model Context Protocol**.
+That someone was Anthropic. The thing they did was **MCP** - the **Model Context Protocol**.
 
 ```
   BEFORE MCP: The Tower of Babel
@@ -415,7 +415,7 @@ Consider, for a moment, the philosophical predicament of your agent.
 
 Every time it runs, it is born. It reads its instructions. It understands its goal. It works, diligently, through the steps required. It completes the task (or fails trying). And then it ends.
 
-The next time you call it, it is born again. It has no memory of the previous run. The success, the failure, the lesson learned when the API returned a 429 and it should have waited thirty seconds — gone. All of it, gone.
+The next time you call it, it is born again. It has no memory of the previous run. The success, the failure, the lesson learned when the API returned a 429 and it should have waited thirty seconds - gone. All of it, gone.
 
 It is, in this sense, like a goldfish with a computer science degree. Brilliant within the span of a single bowl-circuit. Completely unaware that it has done this before.
 
@@ -485,7 +485,7 @@ def run_agent(goal: str) -> str:
 
 That's it. The loop is genuinely that simple.
 
-The frameworks — LangGraph, CrewAI, the OpenAI Agents SDK — are this loop, packaged with every edge case handled, every failure mode thought through, every architectural decision made for you, and approximately 40,000 lines of source code to make it all work reliably.
+The frameworks - LangGraph, CrewAI, the OpenAI Agents SDK - are this loop, packaged with every edge case handled, every failure mode thought through, every architectural decision made for you, and approximately 40,000 lines of source code to make it all work reliably.
 
 ### The Loop, Annotated
 
@@ -554,7 +554,7 @@ The agent calls the same tool with the same arguments, gets the same result, and
 
 **🌀 The Hallucination Spiral**
 
-The model hallucinates a tool result — predicts what the result *should* be rather than waiting for what it *is* — and proceeds to act on fictional information.
+The model hallucinates a tool result - predicts what the result *should* be rather than waiting for what it *is* - and proceeds to act on fictional information.
 
 *Fix: Always pass actual tool results. Never let the model assume what a tool returned.*
 
@@ -574,7 +574,7 @@ The model decides it's done when it isn't, returns a plausible-sounding but inco
 
 ## 🧩 Putting It All Together
 
-Here is the complete picture — all five parts, working together on a real task:
+Here is the complete picture - all five parts, working together on a real task:
 
 ```
   TASK: "Monitor Hacker News daily and email me a summary
@@ -630,16 +630,16 @@ A quick reference for when you need to explain all of this at a party without lo
 ---
 
 > *"I may not have gone where I intended to go, but I think I have ended up where I needed to be."*
-> — Douglas Adams
+> - Douglas Adams
 
 > *"The agent may not have taken the path you expected, but if it got the right answer, you're going to pretend you planned it that way."*
-> — This Guide, having watched many agent demos
+> - This Guide, having watched many agent demos
 
 ---
 
 ## 🔭 What's Next
 
-You now understand what an agent is made of. You've seen the brain, the hands, the memory, and the loop that keeps them all moving. You have, if not confidence, then at least *informed uncertainty* — which is the best anyone in this field can honestly claim.
+You now understand what an agent is made of. You've seen the brain, the hands, the memory, and the loop that keeps them all moving. You have, if not confidence, then at least *informed uncertainty* - which is the best anyone in this field can honestly claim.
 
 **Next:** [How Agents Think →](03-how-agents-think.md)
 

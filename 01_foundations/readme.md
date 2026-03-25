@@ -4,7 +4,7 @@
 > and has been widely regarded as a bad move. AI agents were created much later,
 > and had roughly the same effect on the software industry."*
 
-Welcome to the Foundations section — the part where we establish ground truth
+Welcome to the Foundations section - the part where we establish ground truth
 before anyone starts arguing about frameworks.
 
 By the end of this section you will know:
@@ -44,8 +44,8 @@ flowchart TD
 | # | File | What it covers |
 |---|------|----------------|
 | 01 | [What is an AI Agent? 🤖](01-what-is-an-agent.md) | The real definition, the three core properties, why it's different from a chatbot |
-| 02 | [Anatomy of an Agent 🔬](02-anatomy-of-an-agent.md) | Brain, tools, memory, context window, orchestration — dissected |
-| 03 | [How Agents Think ⚙️](03-how-agents-think.md) | The ReAct loop, CoT, Plan-and-Execute, Reflection — with code |
+| 02 | [Anatomy of an Agent 🔬](02-anatomy-of-an-agent.md) | Brain, tools, memory, context window, orchestration - dissected |
+| 03 | [How Agents Think ⚙️](03-how-agents-think.md) | The ReAct loop, CoT, Plan-and-Execute, Reflection - with code |
 | 04 | [Types of Agents 🗺️](04-types-of-agents.md) | A taxonomy, from simple tool-callers to multi-agent systems |
 | 05 | [Glossary 📖](05-glossary.md) | Every term you'll hear, honest definitions, no circular explanations |
 

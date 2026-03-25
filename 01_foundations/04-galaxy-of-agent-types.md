@@ -1,7 +1,7 @@
 # 🌌 Chapter 4: The Galaxy of Agent Types
 
 > *"Space is big. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is."*
-> — Douglas Adams, on space, but also, inadvertently, on the AI agent taxonomy landscape of 2026.
+> - Douglas Adams, on space, but also, inadvertently, on the AI agent taxonomy landscape of 2026.
 
 ---
 
@@ -47,7 +47,7 @@ Before we explore each type individually, here is an overview of the full taxono
 
 ### *"It Does One Thing. Admirably."*
 
-The Simple Agent is the hydrogen atom of the agent universe. It is the most basic unit. It is, if we are being honest, barely an agent at all — but we include it here because it works, it's everywhere, and dismissing it because it lacks sophistication would be like dismissing bread because it's not a soufflé.
+The Simple Agent is the hydrogen atom of the agent universe. It is the most basic unit. It is, if we are being honest, barely an agent at all - but we include it here because it works, it's everywhere, and dismissing it because it lacks sophistication would be like dismissing bread because it's not a soufflé.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -100,7 +100,7 @@ The Simple Agent is the hydrogen atom of the agent universe. It is the most basi
 
 ### *"Give It Enough Tools and It Will Build a House. Or Try To."*
 
-The Tool-Use Agent is what most people mean when they say "AI agent" in a product demo. It has access to a rich collection of tools — web search, code execution, file systems, APIs, databases — and it selects which ones to use based on what the task requires.
+The Tool-Use Agent is what most people mean when they say "AI agent" in a product demo. It has access to a rich collection of tools - web search, code execution, file systems, APIs, databases - and it selects which ones to use based on what the task requires.
 
 The key distinction from the Simple Agent is breadth: not one or two tools, but a whole belt of them, and the intelligence to pick the right one for the moment.
 
@@ -213,7 +213,7 @@ To make this concrete, here is a lightly dramatised but technically accurate exa
 
 🔧 ACTION: web_search("current CEO of OpenAI 2026")
 
-👁️ OBSERVATION: Results indicate Sam Altman is the CEO, but wait —
+👁️ OBSERVATION: Results indicate Sam Altman is the CEO, but wait -
                there's something about a brief firing in November 2023.
                Let me get more current information.
 
@@ -279,7 +279,7 @@ COMMON FAILURE MODES
 
 The Cognitive Agent does something that sounds simple but is, in practice, extraordinary: **it thinks about its own thinking.**
 
-After generating a response or completing a step, it asks itself — or another model asks it — *"Was that any good? Could it be better? Did I miss something obvious?"* Then it revises.
+After generating a response or completing a step, it asks itself - or another model asks it - *"Was that any good? Could it be better? Did I miss something obvious?"* Then it revises.
 
 This pattern goes by many names: Reflection, Self-Critique, Constitutional AI-adjacent reasoning, or, in more excitable papers, "metacognition." Whatever you call it, the results are consistently better than single-pass generation, which has led to the uncomfortable realisation that a model asking itself "wait, is this actually correct?" is more reliable than a model that doesn't.
 
@@ -320,7 +320,7 @@ This pattern goes by many names: Reflection, Self-Critique, Constitutional AI-ad
 
 **The Two-Model Variant** 🎭
 
-Some architectures use two separate models: a **Generator** that produces output, and a **Critic** that evaluates it. This is not unlike having a writer and an editor — the writer is optimistic about their work; the editor is not.
+Some architectures use two separate models: a **Generator** that produces output, and a **Critic** that evaluates it. This is not unlike having a writer and an editor - the writer is optimistic about their work; the editor is not.
 
 ```
   GENERATOR MODEL               CRITIC MODEL
@@ -452,7 +452,7 @@ Multi-agent systems are powerful. They are also, without exception, more complex
 
 ### *"It Lives. It Persists. It Sends Emails While You Sleep."*
 
-The Autonomous Agent is what the science fiction writers imagined when they wrote about AI. It runs continuously — not waiting for a user to ask it a question, but pursuing goals over hours, days, or indefinitely. It monitors. It reacts to events. It builds up a picture of the world over time. It acts.
+The Autonomous Agent is what the science fiction writers imagined when they wrote about AI. It runs continuously - not waiting for a user to ask it a question, but pursuing goals over hours, days, or indefinitely. It monitors. It reacts to events. It builds up a picture of the world over time. It acts.
 
 It is also the agent type that most frequently triggers the question: *"wait, should we maybe have a human check this first?"*
 
@@ -617,10 +617,10 @@ Be careful.    and move on.
 
 The field has not settled on names. What one framework calls a "supervisor" another calls an "orchestrator." What one paper calls "a hierarchical multi-agent system" a startup calls "a swarm." What one engineer calls "a simple ReAct agent" a marketing team calls "an autonomous AI copilot powered by next-generation agentic reasoning."
 
-This is normal. Fields are messy while they're being invented. The important thing is not the name — it's the architecture. Know what the thing does. Know where it fails. Know what it needs from you. The rest is vocabulary, and vocabulary is negotiable.
+This is normal. Fields are messy while they're being invented. The important thing is not the name - it's the architecture. Know what the thing does. Know where it fails. Know what it needs from you. The rest is vocabulary, and vocabulary is negotiable.
 
 > *"The major difference between a thing that might go wrong and a thing that cannot possibly go wrong is that when a thing that cannot possibly go wrong goes wrong, it usually turns out to be impossible to get at or repair."*
-> — Douglas Adams
+> - Douglas Adams
 >
 > This principle applies to AI agents. Set your confirmation steps. Add your guardrails. Define your stopping conditions. Then deploy.
 
@@ -630,13 +630,13 @@ This is normal. Fields are messy while they're being invented. The important thi
 
 You now know the full taxonomy. You know what each type is, how it's structured, when to use it, and when it will cause you problems.
 
-The next chapter — **Chapter 5: Glossary** — summarize all the technical jargons
+The next chapter - **Chapter 5: Glossary** - summarize all the technical jargons
 
 Each has opinions. We will share ours.
 
 ---
 
-*— End of Chapter 4 —*
+*- End of Chapter 4 -*
 
 ---
 

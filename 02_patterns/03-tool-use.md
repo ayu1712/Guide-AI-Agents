@@ -5,7 +5,7 @@
 
 ### What It Is
 
-Tool use is the pattern that transforms a language model from a *text predictor* into an *actor*. Without tools, an agent can reason beautifully and accomplish precisely nothing outside its context window. With tools, it can reach out and touch the world — search the web, run code, read files, send messages, and a great many other things you may not have fully considered when you said *"let's just give it some tools."*
+Tool use is the pattern that transforms a language model from a *text predictor* into an *actor*. Without tools, an agent can reason beautifully and accomplish precisely nothing outside its context window. With tools, it can reach out and touch the world - search the web, run code, read files, send messages, and a great many other things you may not have fully considered when you said *"let's just give it some tools."*
 
 A tool is, at its most fundamental: **a function that the model can decide to call**.
 

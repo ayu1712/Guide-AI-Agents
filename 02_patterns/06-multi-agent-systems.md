@@ -2,11 +2,11 @@
 
 > *"No single agent can know everything.*
 > *This is not a limitation. This is an excuse to build more agents."*
-> *— Everyone who has ever written a multi-agent paper*
+> *- Everyone who has ever written a multi-agent paper*
 
 ### What It Is
 
-Multi-agent systems are collections of agents that collaborate on a task — each specialised, each with its own tools and instructions, each contributing to a goal none of them could achieve alone.
+Multi-agent systems are collections of agents that collaborate on a task - each specialised, each with its own tools and instructions, each contributing to a goal none of them could achieve alone.
 
 Think of it as the difference between asking one person to design, build, wire, and plumb your house versus hiring specialists who know how to coordinate. The specialists do better work. They also introduce coordination overhead, miscommunication, and the occasional wall that turns out to be load-bearing in a way the architect forgot to mention to the builder.
 
@@ -18,18 +18,18 @@ Think of it as the difference between asking one person to design, build, wire, 
 
 ```
                     ┌──────────────────────────┐
-                    │      🎯 ORCHESTRATOR       │
-                    │   ─────────────────────   │
-                    │   Receives the goal        │
-                    │   Makes a plan             │
-                    │   Delegates work           │
-                    │   Synthesises results      │
+                    │      🎯 ORCHESTRATOR     │
+                    │   ─────────────────────  │
+                    │   Receives the goal      │
+                    │   Makes a plan           │
+                    │   Delegates work         │
+                    │   Synthesises results    │
                     └────────────┬─────────────┘
                                  │  delegates tasks
                ┌─────────────────┼─────────────────┐
                ▼                 ▼                 ▼
       ┌───────────────┐  ┌───────────────┐  ┌───────────────┐
-      │ 🔍 RESEARCH   │  │ ✍️  WRITER     │  │ ✅ CHECKER    │
+      │ 🔍 RESEARCH   │ │ ✍️  WRITER    │  │ ✅ CHECKER    │
       │    Agent      │  │    Agent      │  │    Agent      │
       │ ────────────  │  │ ────────────  │  │ ────────────  │
       │ web_search    │  │ draft()       │  │ verify()      │
@@ -45,19 +45,19 @@ Think of it as the difference between asking one person to design, build, wire, 
 
 ```
     ┌─────────────────────┐              ┌─────────────────────┐
-    │    🔵 AGENT A         │ ◄─ debate ─► │     🔴 AGENT B        │
-    │    "The Bull"         │              │     "The Bear"        │
+    │    🔵 AGENT A       │ ◄─ debate ─► │     🔴 AGENT B     │
+    │    "The Bull"       │              │     "The Bear"      │
     │                     │              │                     │
-    │  Argues FOR the      │              │  Argues AGAINST the  │
-    │  proposal            │              │  proposal            │
+    │  Argues FOR the     │              │  Argues AGAINST the │
+    │  proposal           │              │  proposal           │
     └─────────────────────┘              └─────────────────────┘
                 │                                   │
                 └─────────────────┬─────────────────┘
                                   ▼
                          ┌──────────────────┐
-                         │   ⚖️  JUDGE AGENT  │
-                         │   Makes the       │
-                         │   final call      │
+                         │   ⚖️  JUDGE AGENT│
+                         │   Makes the      │
+                         │   final call     │
                          └──────────────────┘
 ```
 
@@ -88,20 +88,20 @@ Think of it as the difference between asking one person to design, build, wire, 
 
 ```
                     ┌─────────────────┐
-                    │   🏛️ CEO Agent   │
-                    │  Top-level goal  │
+                    │   🏛️ CEO Agent  │
+                    │  Top-level goal │
                     └────────┬────────┘
                              │
               ┌──────────────┼──────────────┐
               ▼              ▼              ▼
        ┌──────────┐   ┌──────────┐   ┌──────────┐
-       │ 👔 Mgr A │   │ 👔 Mgr B │   │ 👔 Mgr C │
+       │ 👔 Mgr A │   │ 👔 Mgr B│   │ 👔 Mgr C │
        └────┬─────┘   └────┬─────┘   └────┬─────┘
             │              │              │
          Workers        Workers        Workers
 ```
 
-**Best for:** Very large, complex tasks with natural team boundaries. Mirrors how human organisations scale. Also mirrors how human organisations fail — miscommunication between layers, diffused responsibility, managers who don't know what the workers are actually doing. Build this when you genuinely need it, not before.
+**Best for:** Very large, complex tasks with natural team boundaries. Mirrors how human organisations scale. Also mirrors how human organisations fail - miscommunication between layers, diffused responsibility, managers who don't know what the workers are actually doing. Build this when you genuinely need it, not before.
 
 ---
 
@@ -110,27 +110,27 @@ Think of it as the difference between asking one person to design, build, wire, 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                                                                  │
-│  METHOD 1: Shared Memory         METHOD 2: Direct Messages      │
-│  ─────────────────────────       ─────────────────────────────  │
+│  METHOD 1: Shared Memory         METHOD 2: Direct Messages       │
+│  ─────────────────────────       ─────────────────────────────   │
 │                                                                  │
-│  Agent A writes to store   vs    Agent A sends a structured     │
-│  Agent B reads from store        message directly to Agent B    │
+│  Agent A writes to store   vs    Agent A sends a structured      │
+│  Agent B reads from store        message directly to Agent B     │
 │                                                                  │
-│  Asynchronous.                   Synchronous.                   │
-│  Any agent can read.             Targeted. Point-to-point.      │
-│  Good for shared state.          Good for explicit handoffs.    │
+│  Asynchronous.                   Synchronous.                    │
+│  Any agent can read.             Targeted. Point-to-point.       │
+│  Good for shared state.          Good for explicit handoffs.     │
 │                                                                  │
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  METHOD 3: Blackboard                                            │
 │  ──────────────────────                                          │
 │                                                                  │
-│  All agents read from and write to a shared "blackboard."       │
-│  Agents post findings. Others build on them.                    │
-│  No single agent owns communication; anyone can contribute.     │
+│  All agents read from and write to a shared "blackboard."        │
+│  Agents post findings. Others build on them.                     │
+│  No single agent owns communication; anyone can contribute.      │
 │                                                                  │
-│  Elegant in theory. Requires careful design in practice.        │
-│  Also requires someone to decide what gets erased.              │
+│  Elegant in theory. Requires careful design in practice.         │
+│  Also requires someone to decide what gets erased.               │
 │                                                                  │
 └──────────────────────────────────────────────────────────────────┘
 ```

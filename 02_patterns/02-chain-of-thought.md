@@ -5,11 +5,11 @@
 
 ### What It Is
 
-Chain-of-Thought (CoT) is not quite an agent pattern — it's a *thinking technique*. A way to make the model reason carefully before committing to an answer.
+Chain-of-Thought (CoT) is not quite an agent pattern - it's a *thinking technique*. A way to make the model reason carefully before committing to an answer.
 
 The discovery that shocked everyone: **you can make a language model substantially smarter just by asking it to think step by step before answering.**
 
-This was demonstrated experimentally and triggered a round of *"that can't be right, let's run it again"* — followed by running it again, many times, with many models, getting the same result every time. A model told to reason step by step consistently outperforms the same model answering directly on tasks involving multi-step logic.
+This was demonstrated experimentally and triggered a round of *"that can't be right, let's run it again"* - followed by running it again, many times, with many models, getting the same result every time. A model told to reason step by step consistently outperforms the same model answering directly on tasks involving multi-step logic.
 
 The explanation is not mystical. The intermediate reasoning tokens give the model more context to work with as it generates each subsequent token. The work is, literally, in the working.
 
@@ -42,7 +42,7 @@ The explanation is not mystical. The intermediate reasoning tokens give the mode
 
 ### 🧮 CoT in Action: The Difference It Makes
 
-**Without CoT** — the model pattern-matches to a plausible-sounding answer:
+**Without CoT** - the model pattern-matches to a plausible-sounding answer:
 
 ```
 User:  A train leaves Station A at 9am going 60mph. Another leaves
@@ -53,7 +53,7 @@ Model: They meet at 10:45am.
                            Wrong. Confidently delivered. Completely wrong.
 ```
 
-**With CoT** — the model actually solves the problem:
+**With CoT** - the model actually solves the problem:
 
 ```
 User:  [same question] Think through this step by step.
@@ -107,15 +107,15 @@ flowchart LR
 
 **Apply CoT when the task involves:**
 
-- 🔢 **Maths or counting** — anything where order of operations matters
-- 🧩 **Multi-constraint problems** — *"find a flight that's cheap AND direct AND allows a carry-on"*
-- 🔍 **Verification** — *"check whether this function does what the comment claims"*
-- 🗺️ **Planning** — *"what's the best order to complete these seven things?"*
-- ⚖️ **Tradeoff analysis** — *"compare these four options across six dimensions"*
+- 🔢 **Maths or counting** - anything where order of operations matters
+- 🧩 **Multi-constraint problems** - *"find a flight that's cheap AND direct AND allows a carry-on"*
+- 🔍 **Verification** - *"check whether this function does what the comment claims"*
+- 🗺️ **Planning** - *"what's the best order to complete these seven things?"*
+- ⚖️ **Tradeoff analysis** - *"compare these four options across six dimensions"*
 
 **Skip CoT for:**
 - Simple factual lookups (*"what is the capital of Portugal"*)
 - Open-ended creative tasks (the intermediate steps don't constrain creativity, they just cost tokens)
-- Anything where latency matters more than accuracy — CoT produces more tokens, costs more, takes longer
+- Anything where latency matters more than accuracy - CoT produces more tokens, costs more, takes longer
 
 > 💬 **The guide notes:** The phrase "think step by step" has appeared in so many system prompts that it has become the machine learning equivalent of *"turn it off and on again."* Unlike that advice, it actually works more often than not.

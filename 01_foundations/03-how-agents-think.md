@@ -2,7 +2,7 @@
 
 > *"The History of every major Galactic Civilization tends to pass through three distinct and recognizable phases, those of Survival, Inquiry and Sophistication, otherwise known as the How, Why, and Where phases. For instance, the first phase is characterized by the question 'How can we eat?' the second by the question 'Why do we eat?' and the third by the question 'Where shall we have lunch?'"*
 >
-> — Douglas Adams, *The Restaurant at the End of the Universe*
+> - Douglas Adams, *The Restaurant at the End of the Universe*
 >
 > *AI agents have their own three phases: "How do I do this?", "Why did that fail?", and "Where did all my tokens go?"*
 
@@ -16,7 +16,7 @@ AI researchers, in a fit of either admirable pragmatism or breathtaking hubris, 
 
 It does. Mostly. Sometimes.
 
-The result is the **ReAct loop** — and it powers virtually every AI agent you will ever meet.
+The result is the **ReAct loop** - and it powers virtually every AI agent you will ever meet.
 
 ---
 
@@ -89,7 +89,7 @@ while task_not_done:
     history.append(thought, action, result)
 ```
 
-> 💡 **The Guide notes:** That's it. That is genuinely it. Every agent framework — LangGraph, CrewAI, AutoGen, all of them — is essentially this loop with a great deal of enterprise-grade infrastructure wrapped around it and a logo that looks good on conference slides.
+> 💡 **The Guide notes:** That's it. That is genuinely it. Every agent framework - LangGraph, CrewAI, AutoGen, all of them - is essentially this loop with a great deal of enterprise-grade infrastructure wrapped around it and a logo that looks good on conference slides.
 
 ---
 
@@ -124,7 +124,7 @@ flowchart TD
     classDef done fill:#2E8B57,stroke:#1A5C38,color:#fff
 ```
 
-> ⚠️ **One critical thing this diagram doesn't show:** the model cannot see the tool code, cannot run anything itself, and cannot see outside its context window. It is, if you want to be slightly poetic about it, a brain in a jar — an extremely well-read brain, but a jar nonetheless.
+> ⚠️ **One critical thing this diagram doesn't show:** the model cannot see the tool code, cannot run anything itself, and cannot see outside its context window. It is, if you want to be slightly poetic about it, a brain in a jar - an extremely well-read brain, but a jar nonetheless.
 
 ---
 
@@ -193,12 +193,12 @@ Let's watch a ReAct agent actually work. We'll task it with something genuinely 
 ┌──────────────────────────────────────────────────────────────┐
 │  ✅ FINAL ANSWER                                             │
 ├──────────────────────────────────────────────────────────────┤
-│  "Today is March 19, 2026 — exactly 100 years since          │
+│  "Today is March 19, 2026 - exactly 100 years since          │
 │  [historical event of the day], which [brief description]."  │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-Three tool calls. Three loops. One answer. The agent did not hallucinate the date, did not guess at the history, and — crucially — knew when it was done.
+Three tool calls. Three loops. One answer. The agent did not hallucinate the date, did not guess at the history, and - crucially - knew when it was done.
 
 > 🎉 This is a well-behaved agent. Cherish this moment. They are not all like this.
 
@@ -222,7 +222,7 @@ OBSERVE: [more results, still not quite right]
 THOUGHT: I need to search for this even more specifically.
 ACTION:  web_search("thing I need even more specifically")
 OBSERVE: [Agent has now spent $47 in API calls]
-THOUGHT: I need to—
+THOUGHT: I need to-
 ```
 
 **The cause:** The model keeps trying because it can see it hasn't succeeded, but can't figure out a genuinely new approach.
@@ -248,7 +248,7 @@ sequenceDiagram
     Reality-->>Agent: [silence, but judging]
 ```
 
-**The cause:** The model occasionally predicts what a tool *should* return rather than waiting for what it *actually* returns. It's not lying — it's pattern-matching. Unfortunately, pattern-matching and lying produce identical outputs.
+**The cause:** The model occasionally predicts what a tool *should* return rather than waiting for what it *actually* returns. It's not lying - it's pattern-matching. Unfortunately, pattern-matching and lying produce identical outputs.
 
 **The fix:** Ground truth verification where possible. Don't ask agents to report on things that must be exactly right without a confirmation step.
 
@@ -354,7 +354,7 @@ The agent first creates a complete plan, then executes each step.
 
 **❌ Bad for:** Tasks where early results should change the plan. "Research this company and tell me if we should invest." (What if step 1 reveals the company is a fraud? The pre-made plan becomes irrelevant immediately.)
 
-> ⚠️ **Warning:** Plan-and-Execute agents have a known pathology where they execute a plan that became obsolete three steps ago because nobody told them to re-plan. They are the project managers of the agent world — committed to the original timeline regardless of what has happened to the project.
+> ⚠️ **Warning:** Plan-and-Execute agents have a known pathology where they execute a plan that became obsolete three steps ago because nobody told them to re-plan. They are the project managers of the agent world - committed to the original timeline regardless of what has happened to the project.
 
 ---
 
@@ -546,7 +546,7 @@ sequenceDiagram
     O-->>U: ✅ Here are this week's top 3 AI papers...
 ```
 
-Notice what the model is doing: it's not just running a script. It's *deciding* at each step what to fetch, recognising when it has enough information, and monitoring its own resource consumption (context window). It's not magic — it's the model predicting what a competent researcher would do next, based on having read about competent researchers in its training data.
+Notice what the model is doing: it's not just running a script. It's *deciding* at each step what to fetch, recognising when it has enough information, and monitoring its own resource consumption (context window). It's not magic - it's the model predicting what a competent researcher would do next, based on having read about competent researchers in its training data.
 
 ---
 
@@ -603,7 +603,7 @@ Next chapter will take you to the galaxy of the agents.
 
 > *"A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools."*
 >
-> — Douglas Adams
+> - Douglas Adams
 >
 > *This applies equally to AI agents, their builders, and the people who give them production access on the first day.*
 

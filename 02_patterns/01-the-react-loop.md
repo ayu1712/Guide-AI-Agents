@@ -1,7 +1,7 @@
 ## 🔄 Pattern 01 · The ReAct Loop
 
 > *"It is a mistake to think you can solve any major problems just with potatoes."*
-> — Douglas Adams
+> - Douglas Adams
 >
 > *It is also a mistake to think you can solve any agent problem without a loop.*
 > *The loop is the potatoes of agent design. You need it. You always need it.*
@@ -16,7 +16,7 @@ The core idea is, genuinely, this simple:
 Think → Act → Observe → Think → Act → Observe → ... → Done
 ```
 
-That's it. The power is not in the loop itself — the loop is just a `while`. The power is in what the model does *inside* the Thought step: the reasoning, the evaluation, the decision to try something different when the last thing didn't work. And the fact that this reasoning happens in plain text, which means the model can build on it with every iteration.
+That's it. The power is not in the loop itself - the loop is just a `while`. The power is in what the model does *inside* the Thought step: the reasoning, the evaluation, the decision to try something different when the last thing didn't work. And the fact that this reasoning happens in plain text, which means the model can build on it with every iteration.
 
 It is simple the way calculus is simple once you understand what a derivative is.
 
@@ -74,14 +74,14 @@ flowchart TD
 
 ### 🔬 Anatomy of a Single ReAct Step
 
-Here is what the model actually produces during a ReAct loop — raw output, before any framework makes it pretty:
+Here is what the model actually produces during a ReAct loop - raw output, before any framework makes it pretty:
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
 │  STEP 1                                                            │
 │                                                                    │
 │  Thought: The user wants the current population of Tokyo.          │
-│           I should search — population figures change over time.   │
+│           I should search - population figures change over time.   │
 │                                                                    │
 │  Action: web_search                                                │
 │  Action Input: {"query": "Tokyo population 2026"}                  │

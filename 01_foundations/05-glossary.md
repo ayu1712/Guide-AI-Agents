@@ -171,7 +171,7 @@ agents.
 ### 🔌 MCP (Model Context Protocol)
 
 A standard for connecting language models to tools and data sources. Developed
-by Anthropic, now widely adopted. Essentially a USB standard for agent tools —
+by Anthropic, now widely adopted. Essentially a USB standard for agent tools -
 implement once, works everywhere. Covered in detail in
 [Section 03](../03_frameworks/README.md).
 
@@ -312,7 +312,7 @@ infrastructure costs are measured in tokens.
 ### 🛠️ Tool
 
 A function the agent can call to interact with the world: search the web, run
-code, read files, call APIs. The model doesn't run the tool — it requests the
+code, read files, call APIs. The model doesn't run the tool - it requests the
 call, your code runs it, the result goes back to the model.
 
 ```mermaid

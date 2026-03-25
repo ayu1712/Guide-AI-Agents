@@ -1,14 +1,14 @@
 ## 📋 Pattern 05 · Plan-and-Execute
 
 > *"Plans are useless, but planning is indispensable."*
-> — Dwight D. Eisenhower, who never had to debug a state graph
+> - Dwight D. Eisenhower, who never had to debug a state graph
 
 ### What It Is
 
 Plan-and-Execute is a two-phase approach:
 
-1. **Plan** — The agent produces a complete, structured plan for the entire task *before* taking any actions.
-2. **Execute** — The agent, or a dedicated executor, carries out each step of the plan.
+1. **Plan** - The agent produces a complete, structured plan for the entire task *before* taking any actions.
+2. **Execute** - The agent, or a dedicated executor, carries out each step of the plan.
 
 This is distinct from ReAct, where the agent figures out each next step as it goes. Plan-and-Execute commits to a roadmap upfront. The roadmap can be inspected, modified, parallelised, delegated to multiple agents, and shared with a human for review before anything irreversible happens.
 
@@ -114,6 +114,6 @@ flowchart TD
 
 **Three solutions, in order of preference:**
 
-1. **Replan on failure** — when a step fails, regenerate the remaining plan with the new information. The plan should reflect reality, not the original optimism.
-2. **Hybrid: Plan-and-ReAct** — Plan-and-Execute for high-level structure; ReAct to handle each step's execution. The plan gives direction; the loop handles reality.
-3. **Human checkpoint** — after planning, before executing, show the plan to a human. This is not a weakness. This is engineering wisdom dressed as humility.
+1. **Replan on failure** - when a step fails, regenerate the remaining plan with the new information. The plan should reflect reality, not the original optimism.
+2. **Hybrid: Plan-and-ReAct** - Plan-and-Execute for high-level structure; ReAct to handle each step's execution. The plan gives direction; the loop handles reality.
+3. **Human checkpoint** - after planning, before executing, show the plan to a human. This is not a weakness. This is engineering wisdom dressed as humility.

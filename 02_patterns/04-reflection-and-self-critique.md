@@ -7,11 +7,11 @@
 
 ### What It Is
 
-Reflection is the pattern where an agent reviews its own output, identifies problems, and improves it — without human intervention, and without the existential discomfort of asking someone else to critique your work.
+Reflection is the pattern where an agent reviews its own output, identifies problems, and improves it - without human intervention, and without the existential discomfort of asking someone else to critique your work.
 
 It sounds like it shouldn't work. The same model that produced the flawed output is reviewing it. Why would it do better?
 
-It works because **generating** and **evaluating** are different cognitive operations. When you ask a model to produce output, it is completing a task. When you show it that completed output and ask it to critique it, it is reviewing something that already exists — and patterns that weren't salient during generation become salient during review. The model notices things it missed. Not always. But reliably enough to matter.
+It works because **generating** and **evaluating** are different cognitive operations. When you ask a model to produce output, it is completing a task. When you show it that completed output and ask it to critique it, it is reviewing something that already exists - and patterns that weren't salient during generation become salient during review. The model notices things it missed. Not always. But reliably enough to matter.
 
 ---
 
@@ -32,8 +32,8 @@ flowchart TD
 
     CRITIQUE --> EVAL{Good enough?}
 
-    EVAL -->|"✅ Yes — above threshold"| OUTPUT([📤 Final Output])
-    EVAL -->|"❌ No — needs work"| REVISE["🛠️ REVISE
+    EVAL -->|"✅ Yes - above threshold"| OUTPUT([📤 Final Output])
+    EVAL -->|"❌ No - needs work"| REVISE["🛠️ REVISE
     Improve based on critique.
     Address specific points.
     Don't just rephrase."]
@@ -72,7 +72,7 @@ flowchart TD
 │                                Sends critique to Model A.        │
 │   Cheaper. Faster.                                               │
 │   Model sometimes goes         Model A (Generator):              │
-│   easy on itself — rates       Revises based on critique.        │
+│   easy on itself - rates       Revises based on critique.        │
 │   its own work more            Repeats until good enough.        │
 │   generously than an           ↑                                 │
 │   outside judge would.         More expensive. More reliable.    │
@@ -141,7 +141,7 @@ def reflect_and_improve(goal: str, llm, max_rounds: int = 3) -> str:
             {critique}
 
             Produce an improved version that specifically addresses
-            the issues raised. Don't just rephrase — fix them.
+            the issues raised. Don't just rephrase - fix them.
         """)
 
     return draft
@@ -154,8 +154,8 @@ def reflect_and_improve(goal: str, llm, max_rounds: int = 3) -> str:
 | Use it for | Skip it for |
 |:-----------|:------------|
 | 📝 Long-form writing where quality matters over speed | Simple factual lookups |
-| 💻 Code generation — the critic spots bugs the generator missed | Time-sensitive tasks where latency matters more than quality |
-| 🔬 Research synthesis — catching logical gaps and unsupported claims | Cases where the first pass is already high quality |
-| 📋 Structured outputs — catching format violations, schema errors | Tasks where "good enough" is genuinely good enough |
+| 💻 Code generation - the critic spots bugs the generator missed | Time-sensitive tasks where latency matters more than quality |
+| 🔬 Research synthesis - catching logical gaps and unsupported claims | Cases where the first pass is already high quality |
+| 📋 Structured outputs - catching format violations, schema errors | Tasks where "good enough" is genuinely good enough |
 
 > 💡 **Practical heuristic:** Before adding a reflection loop, ask: *"Would a second, independent attempt at this task meaningfully improve the result?"* If yes, add reflection. If maybe, benchmark it first. If probably not, use the saved tokens on something else. Tokens are not free, even when they feel free.

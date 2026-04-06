@@ -4,7 +4,7 @@ The Hitchhiker's Guide to AI Agents
 Project 01: ReAct Agent from Scratch
 
 A minimal but complete ReAct (Reasoning + Acting) agent built with:
-  - Ollama (free, runs locally — no API key needed)
+  - Ollama (free, runs locally - no API key needed)
   - Two tools: Wikipedia search + a calculator
   - Full reasoning trace printed to terminal
 
@@ -57,7 +57,7 @@ def _wikipedia_resolve_title(query: str) -> str | None:
     """
     Use Wikipedia's search API to resolve a fuzzy query to an exact page title.
 
-    wiki.page() requires an *exact* title — "Berlin Wall" works, "berlin wall history" doesn't.
+    wiki.page() requires an *exact* title - "Berlin Wall" works, "berlin wall history" doesn't.
     This calls the MediaWiki search endpoint first to find the best matching title,
     then returns it so wiki.page() can fetch the right article.
     """
@@ -109,7 +109,7 @@ def calculator(expression: str) -> str:
     Supports: +, -, *, /, **, sqrt(), log(), sin(), cos(), pi, e
     Example: 2 ** 10, sqrt(144), pi * 5 ** 2
     """
-    # Strip quotes — LLMs often produce: Action Input: '58 + 20'
+    # Strip quotes - LLMs often produce: Action Input: '58 + 20'
     expression = _strip_quotes(expression)
 
     allowed = {
@@ -121,7 +121,7 @@ def calculator(expression: str) -> str:
     try:
         result = eval(expression, {"__builtins__": {}}, allowed)  # noqa: S307
         # If eval returned a string (e.g. the model passed '"58 + 20"' with inner quotes),
-        # that means the expression was itself a quoted string — evaluate the inner content.
+        # that means the expression was itself a quoted string - evaluate the inner content.
         if isinstance(result, str):
             result = eval(result, {"__builtins__": {}}, allowed)  # noqa: S307
         return str(result)
@@ -129,7 +129,7 @@ def calculator(expression: str) -> str:
         return f"Calculator error for expression '{expression}': {exc}"
 
 
-# Tool registry — the agent sees this as its action menu
+# Tool registry - the agent sees this as its action menu
 TOOLS: dict[str, dict[str, Any]] = {
     "wikipedia_search": {
         "fn": wikipedia_search,
@@ -180,7 +180,7 @@ def build_system_prompt() -> str:
 
         Rules:
         - Never make up facts. Use tools to look things up.
-        - For calculations, always use the calculator tool — don't compute in your head.
+        - For calculations, always use the calculator tool - don't compute in your head.
         - Be concise in your thoughts.
         - Action must be one of: {list(TOOLS.keys())}
         - Action Input must be a plain string with NO surrounding quotes.

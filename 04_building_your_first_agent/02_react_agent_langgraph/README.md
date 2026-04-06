@@ -1,7 +1,7 @@
-# Project 02 — ReAct Agent with LangGraph
+# Project 02 - ReAct Agent with LangGraph
 
 > *"I love deadlines. I love the whooshing noise they make as they go by."*
-> — Douglas Adams
+> - Douglas Adams
 
 This is the same agent as [Project 01](../01_react_agent_from_scratch/). Same tools. Same job. Same model.
 
@@ -11,7 +11,7 @@ Read this project *after* Project 01. The whole point is the comparison.
 
 ---
 
-## Before you read the code — understand the graph
+## Before you read the code - understand the graph
 
 In Project 01, the agent loop was a `for` loop you wrote yourself. In LangGraph, that same loop is expressed as a **directed graph** with nodes and edges.
 
@@ -53,7 +53,7 @@ That graph is exactly what `create_react_agent()` builds for you. Two nodes, thr
 
 ### Defining tools
 
-**Project 01 — manual**
+**Project 01 - manual**
 ```python
 def wikipedia_search(query: str) -> str:
     """..."""
@@ -67,7 +67,7 @@ TOOLS = {
 }
 ```
 
-**Project 02 — LangGraph**
+**Project 02 - LangGraph**
 ```python
 @tool
 def wikipedia_search(query: str) -> str:
@@ -83,7 +83,7 @@ The `@tool` decorator reads the docstring as the description and auto-generates 
 
 ### The agent loop
 
-**Project 01 — manual (simplified)**
+**Project 01 - manual (simplified)**
 ```python
 for step in range(max_steps):
     response = llm(messages)
@@ -97,13 +97,13 @@ for step in range(max_steps):
     messages.append({"role": "user", "content": f"Observation: {observation}"})
 ```
 
-**Project 02 — LangGraph**
+**Project 02 - LangGraph**
 ```python
 graph = create_react_agent(model=llm, tools=TOOLS, prompt="...")
 result = graph.invoke({"messages": [HumanMessage(content=question)]})
 ```
 
-That's it. The loop, the parser, the message history, the routing logic — all gone. LangGraph handles it.
+That's it. The loop, the parser, the message history, the routing logic - all gone. LangGraph handles it.
 
 ---
 
@@ -119,14 +119,14 @@ Nothing for the common case. But when you need custom behaviour, you pay in conf
 | Human-in-the-loop pause | Add `input()` anywhere | `interrupt_before=["tools"]` + checkpointer |
 | Persist state to disk | Pickle `messages` manually | Built-in `MemorySaver` checkpointer |
 
-The pattern: **simple things are simpler in LangGraph. Complex things are more structured.** Neither is unconditionally better — it depends on what you're building.
+The pattern: **simple things are simpler in LangGraph. Complex things are more structured.** Neither is unconditionally better - it depends on what you're building.
 
 ---
 
 ## Setup
 
 ```bash
-# Same Ollama model as Project 01 — no extra downloads needed
+# Same Ollama model as Project 01 - no extra downloads needed
 pip install -r requirements.txt
 python agent.py
 ```
@@ -156,8 +156,8 @@ python agent.py "Who invented the World Wide Web, and what year was it proposed?
 ```
 
 What to notice:
-- The **reasoning steps** are the same — ReAct is ReAct, regardless of framework
-- The **output display** looks similar — we replicated it intentionally
+- The **reasoning steps** are the same - ReAct is ReAct, regardless of framework
+- The **output display** looks similar - we replicated it intentionally
 - The **code that produces it** is radically different in size and structure
 
 ---
@@ -188,14 +188,14 @@ graph.add_conditional_edges("agent", should_continue)
 graph.add_edge("tools", "agent")   # always loop back
 ```
 
-`create_react_agent()` is just a convenience wrapper around exactly this. In Project 04 (multi-agent), you'll write this graph yourself — because that's when you need full control over the nodes and routing.
+`create_react_agent()` is just a convenience wrapper around exactly this. In Project 04 (multi-agent), you'll write this graph yourself - because that's when you need full control over the nodes and routing.
 
 ---
 
 ## What's next
 
-- **Project 03** — Add memory: same agent, but it remembers previous conversations using LangGraph's built-in checkpointer
-- **Project 04** — Multi-agent: build a supervisor + two specialist agents using the graph primitives directly
+- **Project 03** - Add memory: same agent, but it remembers previous conversations using LangGraph's built-in checkpointer
+- **Project 04** - Multi-agent: build a supervisor + two specialist agents using the graph primitives directly
 
 ---
 

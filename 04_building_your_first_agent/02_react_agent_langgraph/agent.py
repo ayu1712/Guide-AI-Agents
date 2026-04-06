@@ -3,7 +3,7 @@ The Hitchhiker's Guide to AI Agents
 =====================================
 Project 02: ReAct Agent with LangGraph
  
-The same agent as Project 01 — same tools, same job — but now built with
+The same agent as Project 01 - same tools, same job - but now built with
 LangGraph instead of raw Python.
  
 Compare the two side-by-side:
@@ -16,7 +16,7 @@ Compare the two side-by-side:
   Manual message history        State managed automatically
   You own every edge case       LangGraph owns the loop
  
-The big insight: LangGraph is not magic — it IS the loop from Project 01,
+The big insight: LangGraph is not magic - it IS the loop from Project 01,
 packaged so you don't have to re-implement it every time.
  
 Run:
@@ -97,7 +97,7 @@ def _strip_quotes(s: str) -> str:
 def _wikipedia_resolve_title(query: str) -> str | None:
     """
     Use Wikipedia's search API to resolve a fuzzy query to an exact page title.
-    wiki.page() requires an exact title — this finds the closest match first.
+    wiki.page() requires an exact title - this finds the closest match first.
     """
     params = urllib.parse.urlencode({
         "action": "query",
@@ -122,7 +122,7 @@ def wikipedia_search(query: object) -> str:
     """
     Search Wikipedia for factual information about a topic.
     Returns the opening summary of the most relevant Wikipedia page.
-    Works with fuzzy queries — 'berlin wall history' will find 'Berlin Wall'.
+    Works with fuzzy queries - 'berlin wall history' will find 'Berlin Wall'.
     """
     query = _strip_quotes(_coerce_str(query))
     title = _wikipedia_resolve_title(query)
@@ -182,7 +182,7 @@ TOOLS = [wikipedia_search, calculator]
 #   - tools → agent  (feed the observation back)
 #   - agent → END    (when the LLM produces a final answer)
 #
-# We don't write any of that — we just configure it.
+# We don't write any of that - we just configure it.
 # ─────────────────────────────────────────────
  
 def build_agent(model: str = "llama3.2"):
@@ -196,7 +196,7 @@ def build_agent(model: str = "llama3.2"):
         prompt=(
             "You are a helpful reasoning agent. "
             "Use tools to look up facts and do calculations. "
-            "Never make up numbers — always use the calculator tool for math."
+            "Never make up numbers - always use the calculator tool for math."
         ),
     )
     return graph
@@ -270,7 +270,7 @@ def run_agent(question: str, model: str = "llama3.2") -> str:
 # 4. ENTRY POINT
 # ─────────────────────────────────────────────
  
-# Same demo questions as Project 01 — run both and compare the output
+# Same demo questions as Project 01 - run both and compare the output
 DEMO_QUESTIONS = [
     "What is the speed of light, and how many times could it circle the Earth in one second?",
     "Who invented the World Wide Web, and what year was it proposed?",
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         question = " ".join(sys.argv[1:])
     else:
-        console.print("\n[bold]Demo questions (same as Project 01 — try both!):[/bold]")
+        console.print("\n[bold]Demo questions (same as Project 01 - try both!):[/bold]")
         for i, q in enumerate(DEMO_QUESTIONS, 1):
             console.print(f"  {i}. {q}")
         console.print("\nPick a number, or type your own question:")

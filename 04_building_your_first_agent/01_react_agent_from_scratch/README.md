@@ -1,9 +1,9 @@
-# Project 01 — ReAct Agent from Scratch
+# Project 01 - ReAct Agent from Scratch
 
 > *"A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools."*
-> — Douglas Adams
+> - Douglas Adams
 
-This is the simplest possible AI agent that actually works. No frameworks, no magic — just Python, a local LLM, and the ReAct loop.
+This is the simplest possible AI agent that actually works. No frameworks, no magic - just Python, a local LLM, and the ReAct loop.
 
 ## What you'll learn
 
@@ -120,9 +120,9 @@ That's it. The agent will automatically learn to use it from the system prompt.
 
 Once you understand this loop, the next projects build on it:
 
-- **Project 02** — Same agent, now with LangGraph (see how a framework simplifies this)
-- **Project 03** — Add memory so the agent remembers past conversations
-- **Project 04** — Multi-agent: two agents collaborating on a task
+- **Project 02** - Same agent, now with LangGraph (see how a framework simplifies this)
+- **Project 03** - Add memory so the agent remembers past conversations
+- **Project 04** - Multi-agent: two agents collaborating on a task
 
 ---
 

@@ -24,6 +24,9 @@ import re
 import textwrap
 from typing import Any
 
+import urllib.parse
+import urllib.request
+
 import wikipediaapi
 from ollama import chat
 from rich.console import Console
@@ -42,22 +45,73 @@ console = Console()
 wiki = wikipediaapi.Wikipedia(user_agent="hitchhikers-guide-ai-agents/1.0", language="en")
 
 
+def _strip_quotes(s: str) -> str:
+    """
+    LLMs often wrap their Action Input in quotes, e.g. '"speed of light"' or "'58 + 20'".
+    Strip leading/trailing quote characters so tools receive clean input.
+    """
+    return s.strip().strip("\"'").strip()
+
+
+def _wikipedia_resolve_title(query: str) -> str | None:
+    """
+    Use Wikipedia's search API to resolve a fuzzy query to an exact page title.
+
+    wiki.page() requires an *exact* title — "Berlin Wall" works, "berlin wall history" doesn't.
+    This calls the MediaWiki search endpoint first to find the best matching title,
+    then returns it so wiki.page() can fetch the right article.
+    """
+    params = urllib.parse.urlencode({
+        "action": "query",
+        "list": "search",
+        "srsearch": query,
+        "format": "json",
+        "srlimit": 1,
+    })
+    url = f"https://en.wikipedia.org/w/api.php?{params}"
+    req = urllib.request.Request(url, headers={"User-Agent": "hitchhikers-guide-ai-agents/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read())
+            hits = data.get("query", {}).get("search", [])
+            return hits[0]["title"] if hits else None
+    except Exception:
+        return None
+
+
 def wikipedia_search(query: str) -> str:
-    """Search Wikipedia and return the opening summary of the best matching page."""
-    page = wiki.page(query)
+    """
+    Search Wikipedia and return the opening summary of the best matching page.
+
+    Uses Wikipedia's search API to resolve fuzzy queries to exact page titles,
+    so 'berlin wall history' correctly fetches the 'Berlin Wall' article.
+    """
+    query = _strip_quotes(query)
+
+    # Step 1: resolve the query to a real page title via Wikipedia search
+    title = _wikipedia_resolve_title(query)
+
+    # Step 2: fall back to using the raw query if search API fails
+    page = wiki.page(title or query)
+
     if not page.exists():
-        return f"No Wikipedia page found for '{query}'. Try a different search term."
-    # Return first ~800 chars — enough context without blowing the context window
-    summary = page.summary[:800]
-    return f"[Wikipedia: {page.title}]\n{summary}"
+        return (
+            f"No Wikipedia page found for '{query}'. "
+            "Try a different or simpler search term."
+        )
+
+    return f"[Wikipedia: {page.title}]\n{page.summary[:800]}"
 
 
 def calculator(expression: str) -> str:
     """
     Safely evaluate a mathematical expression.
     Supports: +, -, *, /, **, sqrt(), log(), sin(), cos(), pi, e
-    Example: '2 ** 10', 'sqrt(144)', 'pi * 5 ** 2'
+    Example: 2 ** 10, sqrt(144), pi * 5 ** 2
     """
+    # Strip quotes — LLMs often produce: Action Input: '58 + 20'
+    expression = _strip_quotes(expression)
+
     allowed = {
         "sqrt": math.sqrt, "log": math.log, "log10": math.log10,
         "sin": math.sin, "cos": math.cos, "tan": math.tan,
@@ -66,9 +120,13 @@ def calculator(expression: str) -> str:
     }
     try:
         result = eval(expression, {"__builtins__": {}}, allowed)  # noqa: S307
+        # If eval returned a string (e.g. the model passed '"58 + 20"' with inner quotes),
+        # that means the expression was itself a quoted string — evaluate the inner content.
+        if isinstance(result, str):
+            result = eval(result, {"__builtins__": {}}, allowed)  # noqa: S307
         return str(result)
     except Exception as exc:
-        return f"Calculator error: {exc}"
+        return f"Calculator error for expression '{expression}': {exc}"
 
 
 # Tool registry — the agent sees this as its action menu
@@ -125,7 +183,12 @@ def build_system_prompt() -> str:
         - For calculations, always use the calculator tool — don't compute in your head.
         - Be concise in your thoughts.
         - Action must be one of: {list(TOOLS.keys())}
-        - Action Input must be a plain string, not JSON.
+        - Action Input must be a plain string with NO surrounding quotes.
+          WRONG:  Action Input: '58 + 20'
+          CORRECT: Action Input: 58 + 20
+          WRONG:  Action Input: "speed of light"
+          CORRECT: Action Input: speed of light
+        - For wikipedia_search: use a short, general search term (2-4 words), not a question.
     """).strip()
 
 
